@@ -78,6 +78,9 @@ This is the main marketing website for Code Institute. It is designed to be resp
     - Balsamiq was used to create the [wireframes](https://github.com/) during the design process.
 
 fontawesome icons:
+fas fa-search
+fas fa-user
+fas fa-shopping-bag
 
 
 ## Testing
@@ -235,4 +238,3 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ### TBD
 
--   Fix Favicons.
