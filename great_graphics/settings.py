@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',  # allauth app for user login, logout, registration and password resets
     'allauth.socialaccount',  # login via social media providers such as facebook
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,11 @@ ROOT_URLCONF = 'great_graphics.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            # Custom allauth
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
