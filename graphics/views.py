@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Graphic
 
 # Create your views here.
@@ -13,3 +13,15 @@ def all_graphics(request):
     }
 
     return render(request, 'graphics/graphics.html', context)
+
+
+def graphic_detail(request, graphic_id):
+    """ A view to show individual graphic details """
+
+    graphic = get_object_or_404(Graphic, pk=graphic_id)
+
+    context = {
+        'graphic': graphic,
+    }
+
+    return render(request, 'graphics/graphic_detail.html', context)
