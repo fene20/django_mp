@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 # import from current directory
 from . import views
