@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Graphic
+from .models import Graphic, Category
 
 # Create your views here.
 
@@ -10,8 +10,16 @@ def all_graphics(request):
 
     graphics = Graphic.objects.all()
     query = None
-    
+    categories = None
+
     if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            # double underscore when looking for access to name field of category model
+            # converting the list of strings of category names passed through the URL into a list of actual category objects, so that we can access all their fields in the template.
+            graphics = graphics.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -26,6 +34,7 @@ def all_graphics(request):
     context = {
         'graphics': graphics,
         'search_term': query,
+        'current_categories': categories,
     }
 
     return render(request, 'graphics/graphics.html', context)
