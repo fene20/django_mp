@@ -1,10 +1,29 @@
 from django.contrib import admin
-
-# Register your models here.
-
-
 from .models import Graphic, Category
 
 # Register your models here.
-admin.site.register(Graphic)
-admin.site.register(Category)
+
+
+class GraphicAdmin(admin.ModelAdmin):
+    # list display tuple
+    list_display = (
+        'sku',
+        'name',
+        'category',
+        'price',
+        'rating',
+        'image',
+    )
+
+    # tuple, -sku for reverse order
+    ordering = ('sku',)
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'name',
+    )
+
+admin.site.register(Graphic, GraphicAdmin)
+admin.site.register(Category, CategoryAdmin)
+
