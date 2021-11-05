@@ -11,8 +11,30 @@ def all_graphics(request):
     graphics = Graphic.objects.all()
     query = None
     categories = None
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                # Copying the sort parameter into a new variable called sortkey.
+                # This preserves the original field we want it to sort on - name.
+                # The actual field we're going to sort on is lower_name in the sort key variable.
+                # If we had just renamed sort itself to lower_name we would have lost the original field name.
+                # annotate adds on the new field.
+                graphics = graphics.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    # minus to reverse order
+                    sortkey = f'-{sortkey}'
+            graphics = graphics.order_by(sortkey)
+
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             # double underscore when looking for access to name field of category model
@@ -31,10 +53,13 @@ def all_graphics(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             graphics = graphics.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'graphics': graphics,
         'search_term': query,
         'current_categories': categories,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'graphics/graphics.html', context)

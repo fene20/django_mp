@@ -150,7 +150,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 -   Please see TDD reference in commit messages
 
--   TDD1: -
+-   TDD1: - 
+Code dies not sort with graphicsTDD = graphics.order_by(sortkey) in graphics/views.py, each sort pulldown gives the same sort on screen.
+Code works correctly with graphics = graphics.order_by(sortkey).
+Graphic sorting tested for each menu item both asc and desc.
 
 
 ### Further Testing

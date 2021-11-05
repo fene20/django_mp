@@ -1,11 +1,24 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
+
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link"
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-graphics-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sort
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-graphics-link">
+                <a href="{% url 'graphics' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'graphics' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'graphics' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                <a href="{% url 'graphics' %}" class="dropdown-item">All Graphics</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-graphics-link"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Graphics
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+            <div class="dropdown-menu border-0" aria-labelledby="all-graphics-link">
                 <a href="{% url 'graphics' %}?category=icon" class="dropdown-item">Icon Graphic</a>
                 <a href="{% url 'graphics' %}?category=logo" class="dropdown-item ">Logo Graphic</a>
                 <a href="{% url 'graphics' %}?category=poster" class="dropdown-item ">Poster Graphic</a>
