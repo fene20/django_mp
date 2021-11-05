@@ -6,10 +6,10 @@
                 All Graphics
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">Icon Graphic</a>
-                <a href="" class="dropdown-item ">Logo Graphic</a>
-                <a href="" class="dropdown-item ">Poster Graphic</a>
-                <a href="{% url 'graphics' %}" class="dropdown-item">All Graphics</a>
+                <a href="{% url 'graphics' %}?category=icon" class="dropdown-item">Icon Graphic</a>
+                <a href="{% url 'graphics' %}?category=logo" class="dropdown-item ">Logo Graphic</a>
+                <a href="{% url 'graphics' %}?category=poster" class="dropdown-item ">Poster Graphic</a>
+                <a href="{% url 'graphics' %}?category=icon,logo,poster" class="dropdown-item">All Graphics</a>
             </div>
         </li>
 
