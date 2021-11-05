@@ -151,9 +151,19 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   Please see TDD reference in commit messages
 
 -   TDD1: - 
-Code dies not sort with graphicsTDD = graphics.order_by(sortkey) in graphics/views.py, each sort pulldown gives the same sort on screen.
+Code does not sort with graphicsTDD = graphics.order_by(sortkey) in graphics/views.py, each sort pulldown gives the same sort output on screen.
 Code works correctly with graphics = graphics.order_by(sortkey).
 Graphic sorting tested for each menu item both asc and desc.
+
+-   TDD2: - 
+add path('bag/', include('bag.urls')), to great_graphics/urls.py
+add href="{% url 'view_bag' %}"> to HTML files
+add path('', views.view_bag, name='view_bag') to bag/urls.py
+add return render(request, 'bag/bag.html') to bag/views.py
+python does not run when code in bag/urls.py is changed to path('', views.view_bagTDD, name='view_bag')
+browser shows https://8000-violet-fox-0sxtge1d.ws-eu18.gitpod.io/bag/ when bag button is hit wit correct code.
+
+
 
 
 ### Further Testing
