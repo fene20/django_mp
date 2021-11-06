@@ -81,6 +81,8 @@ fontawesome icons:
 fas fa-search
 fas fa-user
 fas fa-shopping-bag
+fas fa-chevron-left
+fas fa-lock
 
 
 ## Testing
