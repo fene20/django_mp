@@ -42,6 +42,8 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.graphic.name }}</strong></p>
+                                        <p class="my-0"><strong>Size: </strong>{% if item.graphic.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                        <p class="my-0"><strong>Orientatiom: </strong>{% if item.graphic.has_orientation %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                                         <p class="my-0 small text-muted">SKU: {{ item.graphic.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
