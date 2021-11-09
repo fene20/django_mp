@@ -83,6 +83,8 @@ fas fa-user
 fas fa-shopping-bag
 fas fa-chevron-left
 fas fa-lock
+fas fa-minus
+fas fa-plus
 
 
 ## Testing
