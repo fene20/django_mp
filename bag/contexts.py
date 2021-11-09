@@ -11,15 +11,29 @@ def bag_contents(request):
     total = 0
     bag = request.session.get('bag', {})
 
-    for item_id, quantity in bag.items():
-        graphic = get_object_or_404(Graphic, pk=item_id)
-        total += quantity * graphic.price
-        graphic_count += quantity
-        bag_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'graphic': graphic,
-        })
+    for item_id, item_data in bag.items():
+        # if item has no sizes, i.e. item_data is an integer
+        if isinstance(item_data, int):
+            graphic = get_object_or_404(Graphic, pk=item_id)
+            total += item_data * graphic.price
+            graphic_count += item_data
+            bag_items.append({
+                'item_id': item_id,
+                'quantity': item_data,
+                'graphic': graphic,
+            })
+        else:
+            # is a dictionary, see size added to bag_items
+            graphic = get_object_or_404(Graphic, pk=item_id)
+            for size, quantity in item_data['items_by_size'].items():
+                total += quantity * graphic.price
+                graphic_count += quantity
+                bag_items.append({
+                    'item_id': item_id,
+                    'quantity': item_data,
+                    'graphic': graphic,
+                    'size': size,
+                })
 
     # 2 options here. A discount if more than 1 item is purchased or a discount if the cost is over a certain value
     # A coustomer will likely order just one graphic so will go with the first option.
