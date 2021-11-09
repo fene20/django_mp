@@ -85,6 +85,29 @@ body {
 	background: white;
 	z-index: -1;
 }
+
+a.category-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+
+/* add cursor to select of update/remove in shopping bag */
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on extra large screens */
