@@ -113,6 +113,7 @@
 {% endblock %}
 
 {% block postloadjs %}
+<!-- parent block = block.super -->
 {{ block.super }}
 {% include 'graphics/includes/quantity_input_script.html' %}
 {% endblock %}
