@@ -91,6 +91,7 @@ a.category-badge > span.badge:hover {
     color: #fff !important;
 }
 
+/* style up arrow button */
 .btt-button {
     height: 42px;
     width: 42px;
@@ -99,8 +100,8 @@ a.category-badge > span.badge:hover {
     right: 10px;
 }
 
-
-/* add cursor to select of update/remove in shopping bag */
+/* change cursor to pointer for up arrow button */
+/* change cursor to pointer for update/remove in shopping bag */
 .btt-link,
 .update-link,
 .remove-item {
