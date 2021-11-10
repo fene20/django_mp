@@ -27,6 +27,9 @@ def all_graphics(request):
                 # annotate adds on the new field.
                 graphics = graphics.annotate(lower_name=Lower('name'))
 
+            if sortkey == 'category':
+                sortkey = 'category__name'
+
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
