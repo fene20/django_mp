@@ -1,45 +1,47 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Item
-from .forms import ItemForm
+from .models import Testimonial
+from .forms import TestimonialForm
 
 
 def all_testimonials(request):
     """ A view that renders the (all) testimonials page """
-    items = Item.objects.all()
+    testimonials = Testimonial.objects.all()
     context = {
-        'items': items
+        'testimonials': testimonials
     }
     return render(request, 'testimonials/all_testimonials.html', context)
 
 
 def add_testimonial(request):
     if request.method == 'POST':
-        form = ItemForm(request.POST)
+        form = TestimonialForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('all_testimonials') # Return to all_testimonials(request): above
-    form = ItemForm()
+            return redirect('all_testimonials')  # Return to all_testimonials(request): above
+    form = TestimonialForm()
     context = {
-        'form': form
+        'form': form,
+        'author': request.user,
     }
     return render(request, 'testimonials/add_testimonial.html', context)
 
 
-def edit_testimonial(request, item_id):
-    item = get_object_or_404(Item, id=item_id)
+def edit_testimonial(request, testimonial_id):
+    testimonial = get_object_or_404(Testimonial, id=testimonial_id)
     if request.method == 'POST':
-        form = ItemForm(request.POST, instance=item)
+        form = TestimonialForm(request.POST, instance=testimonial)
         if form.is_valid():
             form.save()
             return redirect('all_testimonials')
-    form = ItemForm(instance=item)
+    form = TestimonialForm(instance=testimonial)
     context = {
-        'form': form
+        'form': form,
+        'author': request.user,
     }
     return render(request, 'testimonials/edit_testimonial.html', context)
 
 
-def delete_testimonial(request, item_id):
-    item = get_object_or_404(Item, id=item_id)
-    item.delete()
+def delete_testimonial(request, testimonial_id):
+    testimonial = get_object_or_404(Testimonial, id=testimonial_id)
+    testimonial.delete()
     return redirect('all_testimonials') # Return to all_testimonials(request): above

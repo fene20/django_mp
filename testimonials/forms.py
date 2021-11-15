@@ -1,8 +1,9 @@
 from django import forms
-from .models import Item
+from .models import Testimonial
 
 
-class ItemForm(forms.ModelForm):
+class TestimonialForm(forms.ModelForm):
     class Meta:
-        model = Item
-        fields = ['name', 'done']
+        model = Testimonial
+        fields = ['star_count', 'text', 'author']
+

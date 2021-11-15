@@ -9,3 +9,6 @@ node_modules/
 *.sqlite3
 *.pyc
 __pycache__
+*.backup
+*.backup1
+*.backup2
