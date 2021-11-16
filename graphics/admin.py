@@ -13,6 +13,8 @@ class GraphicAdmin(admin.ModelAdmin):
         'price',
         'rating',
         'image',
+        'size',
+        'orientation',
     )
 
     # tuple, -sku for reverse order
@@ -26,4 +28,3 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Graphic, GraphicAdmin)
 admin.site.register(Category, CategoryAdmin)
-
