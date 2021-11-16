@@ -86,7 +86,9 @@ fas fa-lock
 fas fa-minus
 fas fa-plus
 fas fa-arrow-up
-
+fas fa-chevron-left
+fas fa-lock
+fas fa-exclamation-circle
 
 ## Testing
 

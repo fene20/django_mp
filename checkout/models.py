@@ -38,9 +38,10 @@ class Order(models.Model):
         if self.order_total > settings.DISCOUNT_THRESHOLD:
             self.discount_amount = self.order_total * settings.DISCOUNT_PERCENTAGE / 100
         else:
-            self.discount_amount = 0
+            self.discount_amount = 0.0
+
         self.grand_total = self.order_total - self.discount_amount
-        self.save() # save instance
+        self.save()  # save instance
 
 
     def save(self, *args, **kwargs):
