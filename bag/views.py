@@ -43,12 +43,12 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
-    """Adjust the quantity of the specified product to the specified amount"""
+    """Adjust the quantity of the specified graphic to the specified amount"""
 
     quantity = int(request.POST.get('quantity'))
     size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    if 'graphic_size' in request.POST:
+        size = request.POST['graphic_size']
     bag = request.session.get('bag', {})
 
     if size:
@@ -74,8 +74,8 @@ def remove_from_bag(request, item_id):
 
     try:
         size = None
-        if 'product_size' in request.POST:
-            size = request.POST['product_size']
+        if 'graphic_size' in request.POST:
+            size = request.POST['graphic_size']
         bag = request.session.get('bag', {})
 
         if size:

@@ -34,24 +34,27 @@ def bag_contents(request):
                     'quantity': quantity,  # quantity from inner for loop
                     'graphic': graphic,
                     'size': size,
-                    # 'orientation': orientation,
+#                    'orientation': orientation,
                 })
 
     # 2 options here. A discount if more than 1 item is purchased or a discount if the cost is over a certain value
     # A coustomer will likely order just one graphic so will go with the first option.
-    if graphic_count < 2:
-        discount = 0.0
-        grand_total = total
+    if total > settings.DISCOUNT_THRESHOLD:
+        actual_discount = total * Decimal(settings.DISCOUNT_PERCENTAGE / 100)
+        discount_delta = 0
     else:
-        discount = total * Decimal(settings.DISCOUNT_PERCENTAGE / 100)
-        grand_total = total - discount
+        actual_discount = 0
+        discount_delta = settings.DISCOUNT_THRESHOLD - total
+    
+    grand_total = total - actual_discount
 
     context = {
         'bag_items': bag_items,
         'total': total,
         'graphic_count': graphic_count,
-        'discount': discount,
+        'discount_delta': discount_delta,
         'discount_percentage': settings.DISCOUNT_PERCENTAGE,
+        'discount_threshold': settings.DISCOUNT_THRESHOLD,
         'grand_total': grand_total,
     }
 

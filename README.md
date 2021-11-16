@@ -263,5 +263,11 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ### TBD
 
--   Update hero image
+-   Fix orientation in shopping bag.
+-   Fix testimonial form.
+
+Tutor support
+Fix db.sqlite3
+download graphics into JSON file for upload later.
+Don't modify with items in the db.
 

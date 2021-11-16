@@ -5,5 +5,5 @@ from .models import Testimonial
 class TestimonialForm(forms.ModelForm):
     class Meta:
         model = Testimonial
-        fields = ['star_count', 'text', 'author']
+        fields = ['stars', 'text', 'author']
 
