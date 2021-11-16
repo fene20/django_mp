@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 
 from graphics.models import Graphic
@@ -13,7 +13,7 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified graphic to the shopping bag """
 
-    graphic = Graphic.objects.get(pk=item_id)
+    graphic = get_object_or_404(Graphic, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = None
@@ -31,14 +31,18 @@ def add_to_bag(request, item_id):
         if item_id in list(bag.keys()):
             if size in bag[item_id]['items_by_size'].keys():
                 bag[item_id]['items_by_size'][size] += quantity
+                messages.success(request, f'Updated size {size.upper()} {graphic.name} quantity to {bag[item_id]["items_by_size"][size]}')
             else:
                 bag[item_id]['items_by_size'][size] = quantity
+                messages.success(request, f'Added size {size.upper()} {graphic.name} to your bag')
         else:
             bag[item_id] = {'items_by_size': {size: quantity}}
+            messages.success(request, f'Added size {size.upper()} {graphic.name} to your bag')
     # no size
     else:
         if item_id in list(bag.keys()):
             bag[item_id] += quantity
+            messages.success(request, f'Updated {graphic.name} quantity to {bag[item_id]}')
         else:
             bag[item_id] = quantity
             messages.success(request, f'Added {graphic.name} to your bag')
@@ -50,6 +54,7 @@ def add_to_bag(request, item_id):
 def adjust_bag(request, item_id):
     """Adjust the quantity of the specified graphic to the specified amount"""
 
+    graphic = get_object_or_404(Graphic, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     size = None
     if 'graphic_size' in request.POST:
@@ -59,16 +64,20 @@ def adjust_bag(request, item_id):
     if size:
         if quantity > 0:
             bag[item_id]['items_by_size'][size] = quantity
+            messages.success(request, f'Updated size {size.upper()} {graphic.name} quantity to {bag[item_id]["items_by_size"][size]}')
         else:
             del bag[item_id]['items_by_size'][size]
             # if the size is empty then remove the item
             if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
+            messages.success(request, f'Removed size {size.upper()} {graphic.name} from your bag')   
     else:
         if quantity > 0:
             bag[item_id] = quantity
+            messages.success(request, f'Updated {graphic.name} quantity to {bag[item_id]}')
         else:
             bag.pop(item_id)
+            messages.success(request, f'Removed {graphic.name} from your bag')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
@@ -78,21 +87,24 @@ def remove_from_bag(request, item_id):
     """Remove the item from the shopping bag"""
 
     try:
+        graphic = get_object_or_404(Graphic, pk=item_id)
         size = None
-        if 'graphic_size' in request.POST:
-            size = request.POST['graphic_size']
+        if 'product_size' in request.POST:
+            size = request.POST['product_size']
         bag = request.session.get('bag', {})
 
         if size:
             del bag[item_id]['items_by_size'][size]
-            # if the size is empty then remove the item
             if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
+            messages.success(request, f'Removed size {size.upper()} {graphic.name} from your bag')
         else:
             bag.pop(item_id)
+            messages.success(request, f'Removed {graphic.name} from your bag')
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
 
     except Exception as e:
-        return HttpResponse(status=500)    
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)

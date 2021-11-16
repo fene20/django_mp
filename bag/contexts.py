@@ -53,6 +53,7 @@ def bag_contents(request):
         'total': total,
         'graphic_count': graphic_count,
         'discount_delta': discount_delta,
+        'actual_discount': actual_discount,
         'discount_percentage': settings.DISCOUNT_PERCENTAGE,
         'discount_threshold': settings.DISCOUNT_THRESHOLD,
         'grand_total': grand_total,
