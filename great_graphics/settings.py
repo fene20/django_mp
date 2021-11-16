@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'graphics',
     'bag',
     'testimonials',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -175,3 +176,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DISCOUNT_PERCENTAGE = 10
 DISCOUNT_THRESHOLD = 25
+
+POSTER_FACTOR_A5 = 0.8
+POSTER_FACTOR_A4 = 1.0 # Default size
+POSTER_FACTOR_A3 = 1.2
+POSTER_FACTOR_A2 = 1.4
+POSTER_FACTOR_A1 = 1.6
