@@ -1,5 +1,6 @@
 import uuid
 
+from decimal import Decimal
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
@@ -34,11 +35,18 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.order_total > settings.DISCOUNT_THRESHOLD:
-            self.discount_amount = self.order_total * settings.DISCOUNT_PERCENTAGE / 100
+            self.discount_amount = self.order_total * Decimal(settings.DISCOUNT_PERCENTAGE / 100)
         else:
-            self.discount_amount = 0.0
+            self.discount_amount = 0
+
+
+
+        print(type(self.grand_total))
+        print(type(self.order_total))
+        print(type(self.discount_amount))
+
 
         self.grand_total = self.order_total - self.discount_amount
         self.save()  # save instance
@@ -83,8 +91,8 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        self.lineitem_total = self.product.price * self.quantity
+        self.lineitem_total = self.graphic.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.product.sku} on order {self.order.order_number}'
+        return f'SKU {self.graphic.sku} on order {self.order.order_number}'

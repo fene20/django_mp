@@ -274,3 +274,17 @@ Fix db.sqlite3
 download graphics into JSON file for upload later.
 Don't modify with items in the db.
 
+
+checkout/models.py
+
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        if self.order_total > settings.DISCOUNT_THRESHOLD:
+            self.discount_amount = self.order_total * Decimal(settings.DISCOUNT_PERCENTAGE / 100)
+        else:
+            self.discount_amount = 0
+
+
+            did not work with no discount so set self.discount_amount = 0 then did not work for discount so used Decimal.
+
+
+
