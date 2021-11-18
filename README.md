@@ -90,6 +90,7 @@ fas fa-chevron-left
 fas fa-lock
 fas fa-exclamation-circle
 fas fa-times
+fas fa-spin
 
 ## Testing
 

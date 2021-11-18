@@ -42,12 +42,6 @@ class Order(models.Model):
             self.discount_amount = 0
 
 
-
-        print(type(self.grand_total))
-        print(type(self.order_total))
-        print(type(self.discount_amount))
-
-
         self.grand_total = self.order_total - self.discount_amount
         self.save()  # save instance
 
