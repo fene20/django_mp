@@ -91,6 +91,8 @@ fas fa-lock
 fas fa-exclamation-circle
 fas fa-times
 fas fa-spin
+fas fa-angle-left
+fas fa-gifts
 
 ## Testing
 
@@ -288,4 +290,4 @@ checkout/models.py
             did not work with no discount so set self.discount_amount = 0 then did not work for discount so used Decimal.
 
 
-
+mentor suggestions - add template
