@@ -87,9 +87,9 @@ def add_graphic(request):
     if request.method == 'POST':
         form = GraphicForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            graphic = form.save()
             messages.success(request, 'Successfully added graphic!')
-            return redirect(reverse('add_graphic'))
+            return redirect(reverse('graphic_detail', args=[graphic.id]))
         else:
             messages.error(request, 'Failed to add graphic. Please ensure the form is valid.')
     else:
@@ -125,3 +125,11 @@ def edit_graphic(request, graphic_id):
     }
 
     return render(request, template, context)
+
+
+def delete_graphic(request, graphic_id):
+    """ Delete a graphic from the store """
+    graphic = get_object_or_404(Graphic, pk=graphic_id)
+    graphic.delete()
+    messages.success(request, 'Graphic deleted!')
+    return redirect(reverse('graphics'))
