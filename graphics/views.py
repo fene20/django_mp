@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Graphic, Category
@@ -82,8 +83,13 @@ def graphic_detail(request, graphic_id):
     return render(request, 'graphics/graphic_detail.html', context)
 
 
+@login_required
 def add_graphic(request):
     """ Add a graphic to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = GraphicForm(request.POST, request.FILES)
         if form.is_valid():
@@ -103,8 +109,13 @@ def add_graphic(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_graphic(request, graphic_id):
     """ Edit a graphic in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     graphic = get_object_or_404(Graphic, pk=graphic_id)
     if request.method == 'POST':
         form = GraphicForm(request.POST, request.FILES, instance=graphic)
@@ -127,8 +138,12 @@ def edit_graphic(request, graphic_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_graphic(request, graphic_id):
     """ Delete a graphic from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
     graphic = get_object_or_404(Graphic, pk=graphic_id)
     graphic.delete()
     messages.success(request, 'Graphic deleted!')
