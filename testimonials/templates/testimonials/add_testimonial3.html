@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Testimonial</title>
+</head>
+<body>
+    <h1>Add a Testimonial:</h1>
+    <form method="POST" action="add_testimonial">
+        {% csrf_token %}
+      
+
+        <fieldset class="rounded px-3 mb-5">
+            <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+            {{ form|crispy }}
+        </fieldset>
+
+
+        <div>
+            <p>
+                <button type="submit">Add Testimonial</button>
+            </p>
+        </div>
+    </form>
+</body>
+</html>
