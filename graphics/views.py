@@ -84,10 +84,20 @@ def graphic_detail(request, graphic_id):
 
 def add_graphic(request):
     """ Add a graphic to the store """
-    form = GraphicForm()
+    if request.method == 'POST':
+        form = GraphicForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added graphic!')
+            return redirect(reverse('add_graphic'))
+        else:
+            messages.error(request, 'Failed to add graphic. Please ensure the form is valid.')
+    else:
+        form = GraphicForm()
+        
     template = 'graphics/add_graphic.html'
     context = {
         'form': form,
     }
 
-    return render(request, template, context)    
+    return render(request, template, context)
