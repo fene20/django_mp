@@ -2,7 +2,7 @@ from django import forms
 from .models import Graphic, Category
 
 
-class GraphiccForm(forms.ModelForm):
+class GraphicForm(forms.ModelForm):
 
     class Meta:
         model = Graphic

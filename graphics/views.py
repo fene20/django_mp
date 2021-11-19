@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Graphic, Category
+from .forms import GraphicForm
 
 # Create your views here.
 
@@ -79,3 +80,14 @@ def graphic_detail(request, graphic_id):
     }
 
     return render(request, 'graphics/graphic_detail.html', context)
+
+
+def add_graphic(request):
+    """ Add a graphic to the store """
+    form = GraphicForm()
+    template = 'graphics/add_graphic.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)    
