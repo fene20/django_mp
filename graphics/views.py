@@ -101,3 +101,27 @@ def add_graphic(request):
     }
 
     return render(request, template, context)
+
+
+def edit_graphic(request, graphic_id):
+    """ Edit a graphic in the store """
+    graphic = get_object_or_404(Graphic, pk=graphic_id)
+    if request.method == 'POST':
+        form = GraphicForm(request.POST, request.FILES, instance=graphic)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated graphic!')
+            return redirect(reverse('graphic_detail', args=[graphic.id]))
+        else:
+            messages.error(request, 'Failed to update graphic. Please ensure the form is valid.')
+    else:
+        form = GraphicForm(instance=graphic)
+        messages.info(request, f'You are editing {graphic.name}')
+
+    template = 'graphics/edit_graphic.html'
+    context = {
+        'form': form,
+        'graphic': graphic,
+    }
+
+    return render(request, template, context)
