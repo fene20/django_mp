@@ -1,1 +1,1 @@
-web: gunicorn django_mp.wsgi:application
+web: gunicorn great_graphics.wsgi:application

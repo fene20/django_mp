@@ -116,8 +116,8 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
-
-WSGI_APPLICATION = 'great_graphics.wsgi.application'
+# host neme from heroku has -
+WSGI_APPLICATION = 'great-graphics.wsgi.application'
 
 
 # Database
