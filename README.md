@@ -37,11 +37,17 @@ This is the main marketing website for Code Institute. It is designed to be resp
 
 *   ### Wireframes
 
-    -   Home Page Wireframe - [View](https://github.com/)
+    -   Home Page Wireframe - [View](/documentation/wireframes/home.pdf)
 
-    -   Mobile Wireframe - [View](https://github.com/)
+    -   Shopping Bag Wireframe - [View](/documentation/wireframes/bag.pdf/)
 
-    -   Contact Us Page Wireframe - [View](https://github.com/)
+    -   Testimonials Page Wireframe - [View](/documentation/wireframes/testimonials.pdf)
+
+    -   Order Graphic Page Wireframe - [View](/documentation/wireframes/order_graphic.pdf)
+
+    -   Registration Page Wireframe - [View](/documentation/wireframes/register.pdf)
+
+
 
 ## Features
 
