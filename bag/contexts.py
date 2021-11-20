@@ -33,6 +33,8 @@ def bag_contents(request):
                     'quantity': quantity,  # quantity from inner for loop
                     'graphic': graphic,
                     'size': size,
+                    'graphic': graphic,
+                    'size': size,
                 })
 
     # 2 options here. A discount if more than 1 item is purchased or a discount if the cost is over a certain value

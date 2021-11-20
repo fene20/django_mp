@@ -6,7 +6,8 @@
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-graphics-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-graphics-link"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sort
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-graphics-link">
@@ -29,10 +30,9 @@
                 <a href="{% url 'graphics' %}?category=icon,logo,poster" class="dropdown-item">All Graphics</a>
             </div>
         </li>
-    
+
         <li class="list-inline-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5"
-                href="{% url 'all_testimonials' %}">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'all_testimonials' %}">
                 <div class="text-center">
                     Testimonials
                 </div>
@@ -45,7 +45,7 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">Deals</a>
+                <a href="{% url 'graphics' %}?category=deals" class="dropdown-item">Deals</a>
             </div>
         </li>
 

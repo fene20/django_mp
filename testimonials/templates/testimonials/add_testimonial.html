@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col text-center mt-3">
                         <h2 class="logo-font">Add a Testimonial</h2>
-        
+
                         <hr class="w-50 mb-1">
                     </div>
                 </div>
@@ -31,12 +31,13 @@
 
                     <!-- django's cross site request forgery protection -->
                     {% csrf_token %}
-                 
+
                     <div class="form-row">
 
                         <div class="col-12">
                             <p><strong>Select the number of Stars:</strong></p>
-                            <select class="form-control rounded-0 w-50" name="{{ form.stars.html_name }}" id="id_graphic_size">
+                            <select class="form-control rounded-0 w-50" name="{{ form.stars.html_name }}"
+                                id="id_graphic_size">
                                 <option value="*" selected>*</option>
                                 <option value="**">**</option>
                                 <option value="***">***</option>
@@ -50,7 +51,8 @@
                                 <p><strong>Enter Testimonial:</strong></p>
                             </label><br>
 
-                            <input type="text" id="id_graphic_size" value="{{ form.text.value }}" name="{{ form.text.html_name }}">
+                            <input type="text" id="id_graphic_size" value="{{ form.text.value }}"
+                                name="{{ form.text.html_name }}">
                         </div>
 
                         <div class="col-12">
