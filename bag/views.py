@@ -1,14 +1,16 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_object_or_404
+)
 from django.contrib import messages
 
 from graphics.models import Graphic
 
-# Create your views here.
 
 def view_bag(request):
     """ A view that renders the bag contents page """
 
     return render(request, 'bag/bag.html')
+
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified graphic to the shopping bag """
@@ -17,18 +19,14 @@ def add_to_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = None
-    orientation = None
-    requirement = None
-
     if 'graphic_size' in request.POST:
         size = request.POST['graphic_size']
-        orientation = request.POST['graphic_orientation']
-        requirement = request.POST['graphic_requirement']
     bag = request.session.get('bag', {})
 
     # need to take of the case of a poster with different sizes
-    # Add item to bag as a dictionary as may have more than one item with the same item_id
-    # Use a dictionary key of items_by_size
+    # Add item to bag as a dictionary as may have more than one
+    # item with the same item_id Use a dictionary key of items_by_size
+
     if size:
         if item_id in list(bag.keys()):
             if size in bag[item_id]['items_by_size'].keys():
@@ -72,7 +70,7 @@ def adjust_bag(request, item_id):
             # if the size is empty then remove the item
             if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
-            messages.success(request, f'Removed size {size.upper()} {graphic.name} from your bag')   
+            messages.success(request, f'Removed size {size.upper()} {graphic.name} from your bag')
     else:
         if quantity > 0:
             bag[item_id] = quantity

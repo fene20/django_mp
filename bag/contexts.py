@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from graphics.models import Graphic
 
+
 def bag_contents(request):
 
     bag_items = []
@@ -33,19 +34,19 @@ def bag_contents(request):
                     'quantity': quantity,  # quantity from inner for loop
                     'graphic': graphic,
                     'size': size,
-                    'graphic': graphic,
-                    'size': size,
                 })
 
-    # 2 options here. A discount if more than 1 item is purchased or a discount if the cost is over a certain value
-    # A coustomer will likely order just one graphic so will go with the first option.
+    # 2 options here. A discount if more than 1 item is purchased or a
+    # discount if the cost is over a certain value a coustomer will
+    # likely order just one graphic so will go with the first option.
+
     if total > settings.DISCOUNT_THRESHOLD:
         actual_discount = total * Decimal(settings.DISCOUNT_PERCENTAGE / 100)
         discount_delta = 0
     else:
         actual_discount = 0
         discount_delta = settings.DISCOUNT_THRESHOLD - total
-    
+
     grand_total = total - actual_discount
 
     context = {
