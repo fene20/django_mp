@@ -18,10 +18,12 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     size = None
     orientation = None
+    requirement = None
 
     if 'graphic_size' in request.POST:
         size = request.POST['graphic_size']
         orientation = request.POST['graphic_orientation']
+        requirement = request.POST['graphic_requirement']
     bag = request.session.get('bag', {})
 
     # need to take of the case of a poster with different sizes

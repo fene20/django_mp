@@ -59,6 +59,10 @@
                             <p class="my-0"><strong>Orientation:
                                 </strong>{% if item.graphic.has_sizes %}{{ item.orientation|upper }}{% else %}N/A{% endif %}
                             </p>
+                            <p class="my-0"><strong>Requirement:
+                            </strong>{% if item.graphic.has_sizes %}{{ item.requirement|upper }}{% else %}N/A{% endif %}
+                        </p>
+
                             <p class="my-0 small text-muted">SKU: {{ item.graphic.sku|upper }}</p>
                         </td>
                         <td class="py-3">

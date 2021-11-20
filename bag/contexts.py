@@ -7,7 +7,6 @@ def bag_contents(request):
 
     bag_items = []
     graphic_count = 0
-    discount = 0.0
     total = 0
     bag = request.session.get('bag', {})
 
@@ -34,7 +33,6 @@ def bag_contents(request):
                     'quantity': quantity,  # quantity from inner for loop
                     'graphic': graphic,
                     'size': size,
-#                    'orientation': orientation,
                 })
 
     # 2 options here. A discount if more than 1 item is purchased or a discount if the cost is over a certain value

@@ -27,21 +27,20 @@ class Graphic(models.Model):
     # name, description and price are not optional
     name = models.CharField(max_length=254)
     description = models.TextField()
+    requirement = models.TextField(max_length=100, null=True, blank=True)
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
-#    has_orientation = models.BooleanField(default=False, null=True, blank=True)
+    has_orientation = models.BooleanField(default=False, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     size_choices = (
-        ('none', 'None'),
         ('a5', 'A5'),
         ('a4', 'A4'),
         ('a3', 'A3'),
         ('a2', 'A2'),
     )
     orientation_choices = (
-        ('none', 'None'),
         ('portrait', 'Portrait'),
         ('landscape', 'Landscape'),
     )
