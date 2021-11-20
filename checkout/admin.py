@@ -6,12 +6,14 @@ from .models import Order, OrderLineItem
 # allows us to add and edit line items in the admin
 # right from inside the order model.
 class OrderLineItemAdminInline(admin.TabularInline):
+    """ Lineitem total """
     model = OrderLineItem
     # lineitem_total is read only
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    """ Setup fields """
     inlines = (OrderLineItemAdminInline,)
 
     # These fields are all things that will be calculated by our model methods.

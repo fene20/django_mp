@@ -12,9 +12,9 @@ from profiles.models import UserProfile
 
 
 class Order(models.Model):
+    """customer order form"""
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='orders')
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -30,7 +30,6 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
-    
 
     def _generate_order_number(self):
         """
@@ -49,10 +48,8 @@ class Order(models.Model):
         else:
             self.discount_amount = 0
 
-
         self.grand_total = self.order_total - self.discount_amount
         self.save()  # save instance
-
 
     def save(self, *args, **kwargs):
         """
@@ -68,10 +65,11 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """order line items"""
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     graphic = models.ForeignKey(Graphic, null=False, blank=False, on_delete=models.CASCADE)
-    graphic_size = models.CharField(max_length=2, null=True, blank=True) # A5, A4, A3, A2, A1
-    graphic_orientation = models.CharField(max_length=10, null=True, blank=True) # portrait, landscape
+    graphic_size = models.CharField(max_length=2, null=True, blank=True)  # A5, A4, A3, A2, A1
+    graphic_orientation = models.CharField(max_length=10, null=True, blank=True)  # portrait, landscape
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
     if graphic_size == 'a5':
@@ -86,7 +84,6 @@ class OrderLineItem(models.Model):
         factor = settings.POSTER_FACTOR_A5
     else:  # Default for icons and logos
         factor = 1.0
-
 
     def save(self, *args, **kwargs):
         """

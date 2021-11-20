@@ -1,11 +1,11 @@
 from django.conf import settings  # API secret
 from django.http import HttpResponse  # exception handler
 from django.views.decorators.http import require_POST  # decorator
-from django.views.decorators.csrf import csrf_exempt  # decorator as stripe will not send a scrf token
+# decorator as stripe will not send a scrf token
+from django.views.decorators.csrf import csrf_exempt
 import stripe
-from checkout.webhook_handler import StripeWH_Handler  # webhook handler class
-
-
+# webhook handler class
+from checkout.webhook_handler import StripeWH_Handler
 
 
 @require_POST
@@ -23,7 +23,7 @@ def webhook(request):
 
     try:
         event = stripe.Webhook.construct_event(
-        payload, sig_header, wh_secret
+            payload, sig_header, wh_secret
         )
     except ValueError as e:
         # Invalid payload

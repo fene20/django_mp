@@ -196,6 +196,9 @@ browser shows https://8000-violet-fox-0sxtge1d.ws-eu18.gitpod.io/bag/ when bag b
     -   A white gap can be seen to the right of the footer and navigation bar as a result.
 -   On Microsoft Edge and Internet Explorer Browsers, all links in Navbar are pushed upwards when hovering over them.
 
+
+tests.py linter errors not fixed as tests to be added.
+
 ## Deployment
 
 ### GitHub Pages

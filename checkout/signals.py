@@ -5,6 +5,8 @@ from .models import OrderLineItem
 
 # kwargs = keyword arguments
 # handle signals from the post_save event
+
+
 @receiver(post_save, sender=OrderLineItem)
 def update_on_save(sender, instance, created, **kwargs):
     """
