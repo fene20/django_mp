@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+
 from .models import Graphic, Category
 from .forms import GraphicForm
 
@@ -29,22 +30,19 @@ def all_graphics(request):
                 # If we had just renamed sort itself to lower_name we would have lost the original field name.
                 # annotate adds on the new field.
                 graphics = graphics.annotate(lower_name=Lower('name'))
-
             if sortkey == 'category':
                 sortkey = 'category__name'
-
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     # minus to reverse order
                     sortkey = f'-{sortkey}'
             graphics = graphics.order_by(sortkey)
-
-
+            
         if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
             # double underscore when looking for access to name field of category model
             # converting the list of strings of category names passed through the URL into a list of actual category objects, so that we can access all their fields in the template.
+            categories = request.GET['category'].split(',')
             graphics = graphics.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
@@ -53,7 +51,7 @@ def all_graphics(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('graphics'))
-
+            
             # force an OR of queries otherwise search will look for AND of queries
             # | for OR and i in icontains for case insensitive
             queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -144,6 +142,7 @@ def delete_graphic(request, graphic_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
+
     graphic = get_object_or_404(Graphic, pk=graphic_id)
     graphic.delete()
     messages.success(request, 'Graphic deleted!')
