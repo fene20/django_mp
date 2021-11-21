@@ -121,7 +121,7 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
-# host neme from heroku has -
+# host name from heroku has - host name from gitpod has _
 WSGI_APPLICATION = 'great-graphics.wsgi.application'
 
 
