@@ -107,6 +107,22 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
 
+
+CSS
+
+
+-   base.css - [View](/validation/base_css.pdf)
+-   checkout.css - [View](/validation/checkout_css.pdf)
+-   profile.css - [View](/validation/profile_css.pdf)
+
+
+    -   Order Graphic Page Wireframe - [View](/documentation/wireframes/order_graphic.pdf)
+
+    -   Registration Page Wireframe - [View](/documentation/wireframes/register.pdf)
+
+
+
+
 ### Testing User Stories from User Experience (UX) Section
 
 -   #### First Time Visitor Goals
@@ -197,7 +213,174 @@ browser shows https://8000-violet-fox-0sxtge1d.ws-eu18.gitpod.io/bag/ when bag b
 -   On Microsoft Edge and Internet Explorer Browsers, all links in Navbar are pushed upwards when hovering over them.
 
 
+### Flake8
 tests.py linter errors not fixed as tests to be added.
+
+./custom_storages.py:10:44: W292 no newline at end of file
+./.vscode/arctictern.py:10:1: F401 'subprocess' imported but unused
+./.vscode/arctictern.py:14:80: E501 line too long (94 > 79 characters)
+./.vscode/arctictern.py:34:23: E127 continuation line over-indented for visual indent
+./.vscode/arctictern.py:35:23: E128 continuation line under-indented for visual indent
+./.vscode/arctictern.py:36:23: E124 closing bracket does not match visual indentation
+./.vscode/arctictern.py:89:1: W293 blank line contains whitespace
+./.vscode/arctictern.py:104:10: E231 missing whitespace after ','
+./.vscode/arctictern.py:113:1: W293 blank line contains whitespace
+./.vscode/arctictern.py:114:80: E501 line too long (80 > 79 characters)
+./.vscode/arctictern.py:159:80: E501 line too long (91 > 79 characters)
+./.vscode/arctictern.py:164:1: W293 blank line contains whitespace
+./.vscode/arctictern.py:181:80: E501 line too long (82 > 79 characters)
+./.vscode/arctictern.py:185:80: E501 line too long (96 > 79 characters)
+./.vscode/arctictern.py:187:80: E501 line too long (101 > 79 characters)
+./bag/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./bag/views.py:34:80: E501 line too long (138 > 79 characters)
+./bag/views.py:37:80: E501 line too long (98 > 79 characters)
+./bag/views.py:40:80: E501 line too long (94 > 79 characters)
+./bag/views.py:45:80: E501 line too long (91 > 79 characters)
+./bag/views.py:67:80: E501 line too long (134 > 79 characters)
+./bag/views.py:73:80: E501 line too long (98 > 79 characters)
+./bag/views.py:77:80: E501 line too long (91 > 79 characters)
+./bag/views.py:100:80: E501 line too long (98 > 79 characters)
+./bag/templatetags/__init__.py:3:73: W292 no newline at end of file
+./bag/templatetags/__init__.py:3:73: W292 no newline at end of file
+./bag/templatetags/__init__.py:3:73: W292 no newline at end of file
+./bag/templatetags/bag_tools.py:6:1: E302 expected 2 blank lines, found 1
+./checkout/apps.py:9:9: F401 'checkout.signals' imported but unused
+./checkout/models.py:17:80: E501 line too long (122 > 79 characters)
+./checkout/models.py:22:16: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/models.py:25:23: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/models.py:26:14: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/models.py:28:80: E501 line too long (96 > 79 characters)
+./checkout/models.py:29:80: E501 line too long (93 > 79 characters)
+./checkout/models.py:30:80: E501 line too long (93 > 79 characters)
+./checkout/models.py:32:80: E501 line too long (86 > 79 characters)
+./checkout/models.py:45:80: E501 line too long (102 > 79 characters)
+./checkout/models.py:47:80: E501 line too long (97 > 79 characters)
+./checkout/models.py:69:80: E501 line too long (113 > 79 characters)
+./checkout/models.py:70:80: E501 line too long (91 > 79 characters)
+./checkout/models.py:71:20: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/models.py:71:80: E501 line too long (94 > 79 characters)
+./checkout/models.py:72:27: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/models.py:72:80: E501 line too long (103 > 79 characters)
+./checkout/models.py:74:80: E501 line too long (113 > 79 characters)
+./checkout/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./checkout/urls.py:7:80: E501 line too long (93 > 79 characters)
+./checkout/urls.py:8:80: E501 line too long (88 > 79 characters)
+./checkout/views.py:2:80: E501 line too long (87 > 79 characters)
+./checkout/views.py:18:1: E303 too many blank lines (3)
+./checkout/views.py:73:80: E501 line too long (81 > 79 characters)
+./checkout/views.py:83:80: E501 line too long (88 > 79 characters)
+./checkout/views.py:91:80: E501 line too long (83 > 79 characters)
+./checkout/views.py:98:80: E501 line too long (80 > 79 characters)
+./checkout/views.py:110:80: E501 line too long (87 > 79 characters)
+./checkout/webhook_handler.py:74:80: E501 line too long (80 > 79 characters)
+./checkout/webhook_handler.py:75:80: E501 line too long (80 > 79 characters)
+./checkout/webhook_handler.py:105:80: E501 line too long (107 > 79 characters)
+./checkout/webhook_handler.py:134:80: E501 line too long (81 > 79 characters)
+./checkout/webhook_handler.py:150:80: E501 line too long (93 > 79 characters)
+./checkout/webhooks.py:28:5: F841 local variable 'e' is assigned to but never used
+./checkout/webhooks.py:31:5: F841 local variable 'e' is assigned to but never used
+./checkout/webhooks.py:45:80: E501 line too long (86 > 79 characters)
+./checkout/migrations/0001_initial.py:19:80: E501 line too long (117 > 79 characters)
+./checkout/migrations/0001_initial.py:20:80: E501 line too long (82 > 79 characters)
+./checkout/migrations/0001_initial.py:25:30: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:25:80: E501 line too long (85 > 79 characters)
+./checkout/migrations/0001_initial.py:28:37: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:28:80: E501 line too long (92 > 79 characters)
+./checkout/migrations/0001_initial.py:29:28: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:29:80: E501 line too long (83 > 79 characters)
+./checkout/migrations/0001_initial.py:31:80: E501 line too long (100 > 79 characters)
+./checkout/migrations/0001_initial.py:32:80: E501 line too long (97 > 79 characters)
+./checkout/migrations/0001_initial.py:33:80: E501 line too long (97 > 79 characters)
+./checkout/migrations/0001_initial.py:39:80: E501 line too long (117 > 79 characters)
+./checkout/migrations/0001_initial.py:40:34: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:40:80: E501 line too long (88 > 79 characters)
+./checkout/migrations/0001_initial.py:41:41: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:41:80: E501 line too long (96 > 79 characters)
+./checkout/migrations/0001_initial.py:43:80: E501 line too long (104 > 79 characters)
+./checkout/migrations/0001_initial.py:44:80: E501 line too long (115 > 79 characters)
+./checkout/migrations/0001_initial.py:45:80: E501 line too long (137 > 79 characters)
+./checkout/migrations/0004_order_user_profile.py:18:80: E501 line too long (155 > 79 characters)
+./checkout/migrations/__init__.py:1:52: W292 no newline at end of file
+./graphics/forms.py:13:80: E501 line too long (92 > 79 characters)
+./graphics/models.py:10:21: DJ01 Avoid using null=True on string-based fields such CharField.
+./graphics/models.py:21:80: E501 line too long (94 > 79 characters)
+./graphics/models.py:22:11: DJ01 Avoid using null=True on string-based fields such CharField.
+./graphics/models.py:26:19: DJ01 Avoid using null=True on string-based fields such TextField.
+./graphics/models.py:30:80: E501 line too long (87 > 79 characters)
+./graphics/models.py:31:17: DJ01 Avoid using null=True on string-based fields such URLField.
+./graphics/models.py:44:80: E501 line too long (90 > 79 characters)
+./graphics/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./graphics/urls.py:9:80: E501 line too long (82 > 79 characters)
+./graphics/views.py:56:80: E501 line too long (80 > 79 characters)
+./graphics/views.py:59:80: E501 line too long (82 > 79 characters)
+./graphics/views.py:61:80: E501 line too long (80 > 79 characters)
+./graphics/views.py:102:80: E501 line too long (94 > 79 characters)
+./graphics/views.py:129:80: E501 line too long (97 > 79 characters)
+./graphics/widgets.py:10:80: E501 line too long (87 > 79 characters)
+./graphics/migrations/0001_initial.py:18:80: E501 line too long (117 > 79 characters)
+./graphics/migrations/0001_initial.py:20:35: DJ01 Avoid using null=True on string-based fields such CharField.
+./graphics/migrations/0001_initial.py:20:80: E501 line too long (91 > 79 characters)
+./graphics/migrations/0001_initial.py:29:80: E501 line too long (117 > 79 characters)
+./graphics/migrations/0001_initial.py:30:25: DJ01 Avoid using null=True on string-based fields such CharField.
+./graphics/migrations/0001_initial.py:30:80: E501 line too long (81 > 79 characters)
+./graphics/migrations/0001_initial.py:33:80: E501 line too long (89 > 79 characters)
+./graphics/migrations/0001_initial.py:34:80: E501 line too long (95 > 79 characters)
+./graphics/migrations/0001_initial.py:36:80: E501 line too long (103 > 79 characters)
+./graphics/migrations/0001_initial.py:37:31: DJ01 Avoid using null=True on string-based fields such URLField.
+./graphics/migrations/0001_initial.py:37:80: E501 line too long (87 > 79 characters)
+./graphics/migrations/0001_initial.py:38:80: E501 line too long (82 > 79 characters)
+./graphics/migrations/0001_initial.py:39:80: E501 line too long (141 > 79 characters)
+./graphics/migrations/0002_auto_20211115_2156.py:20:80: E501 line too long (144 > 79 characters)
+./graphics/migrations/0002_auto_20211115_2156.py:25:80: E501 line too long (146 > 79 characters)
+./graphics/migrations/0003_auto_20211120_1402.py:16:19: DJ01 Avoid using null=True on string-based fields such TextField.
+./graphics/migrations/0003_auto_20211120_1402.py:21:80: E501 line too long (126 > 79 characters)
+./graphics/migrations/0003_auto_20211120_1402.py:26:80: E501 line too long (128 > 79 characters)
+./great_graphics/settings.py:150:80: E501 line too long (91 > 79 characters)
+./great_graphics/settings.py:153:80: E501 line too long (81 > 79 characters)
+./great_graphics/settings.py:156:80: E501 line too long (82 > 79 characters)
+./great_graphics/settings.py:159:80: E501 line too long (83 > 79 characters)
+./home/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./profiles/forms.py:36:80: E501 line too long (98 > 79 characters)
+./profiles/models.py:15:28: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:15:80: E501 line too long (81 > 79 characters)
+./profiles/models.py:16:31: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:16:80: E501 line too long (84 > 79 characters)
+./profiles/models.py:17:31: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:17:80: E501 line too long (84 > 79 characters)
+./profiles/models.py:18:28: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:18:80: E501 line too long (81 > 79 characters)
+./profiles/models.py:19:22: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:20:24: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:21:80: E501 line too long (80 > 79 characters)
+./profiles/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./profiles/urls.py:6:80: E501 line too long (84 > 79 characters)
+./profiles/views.py:20:80: E501 line too long (86 > 79 characters)
+./profiles/migrations/0001_initial.py:21:80: E501 line too long (117 > 79 characters)
+./profiles/migrations/0001_initial.py:22:42: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:22:80: E501 line too long (97 > 79 characters)
+./profiles/migrations/0001_initial.py:23:80: E501 line too long (111 > 79 characters)
+./profiles/migrations/0001_initial.py:24:38: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:24:80: E501 line too long (93 > 79 characters)
+./profiles/migrations/0001_initial.py:25:42: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:25:80: E501 line too long (97 > 79 characters)
+./profiles/migrations/0001_initial.py:26:45: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:26:80: E501 line too long (100 > 79 characters)
+./profiles/migrations/0001_initial.py:27:45: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:27:80: E501 line too long (100 > 79 characters)
+./profiles/migrations/0001_initial.py:28:36: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:28:80: E501 line too long (91 > 79 characters)
+./profiles/migrations/0001_initial.py:29:80: E501 line too long (121 > 79 characters)
+./testimonials/models.py:7:80: E501 line too long (80 > 79 characters)
+./testimonials/models.py:8:80: E501 line too long (80 > 79 characters)
+./testimonials/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./testimonials/urls.py:8:80: E501 line too long (95 > 79 characters)
+./testimonials/urls.py:9:80: E501 line too long (101 > 79 characters)
+./testimonials/migrations/0001_initial.py:20:80: E501 line too long (117 > 79 characters)
+./testimonials/migrations/0001_initial.py:21:80: E501 line too long (88 > 79 characters)
+./testimonials/migrations/0001_initial.py:22:80: E501 line too long (83 > 79 characters)
+./testimonials/migrations/0001_initial.py:23:80: E501 line too long (123 > 79 characters)
+
+
 
 ## Deployment
 
