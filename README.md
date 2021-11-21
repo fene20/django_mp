@@ -38,13 +38,9 @@ This is the main marketing website for Code Institute. It is designed to be resp
 *   ### Wireframes
 
     -   Home Page Wireframe - [View](/documentation/wireframes/home.pdf)
-
     -   Shopping Bag Wireframe - [View](/documentation/wireframes/bag.pdf/)
-
     -   Testimonials Page Wireframe - [View](/documentation/wireframes/testimonials.pdf)
-
     -   Order Graphic Page Wireframe - [View](/documentation/wireframes/order_graphic.pdf)
-
     -   Registration Page Wireframe - [View](/documentation/wireframes/register.pdf)
 
 
@@ -118,13 +114,19 @@ CSS
 
 
 -   index.html - [View](/validation/index_html.pdf)
+-   login.html - [View](/validation/login_html.pdf)
+-   register.html - [View](/validation/register_html.pdf)
+-   graphics.html - [View](/validation/graphics_html.pdf)
+-   add graphic.html - [View](/validation/add_graphic_html.pdf)
+-   edit graphic.html - [View](/validation/edit_graphic_html.pdf)
+-   graphic detail.html - [View](/validation/graphic_detail_html.pdf)
+-   testimonials.html - [View](/validation/all_testimonials_html.pdf)
+-   add testimonial.html - [View](/validation/add_testimonial_html.pdf)
+-   edit testimonial.html - [View](/validation/edit_testimonial_html.pdf)
+-   bag.html - [View](/validation/bag_html.pdf)
+-   checkout.html - [View](/validation/checkout_html.pdf)
+-   checkout success.html - [View](/validation/checkout_success_html.pdf)
 
-
-
-
-    -   Order Graphic Page Wireframe - [View](/documentation/wireframes/order_graphic.pdf)
-
-    -   Registration Page Wireframe - [View](/documentation/wireframes/register.pdf)
 
 
 
