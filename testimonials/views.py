@@ -19,7 +19,8 @@ def add_testimonial(request):
         form = TestimonialForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('all_testimonials')  # Return to all_testimonials(request): above
+            # Return to all_testimonials(request): above
+            return redirect('all_testimonials')
     form = TestimonialForm()
     context = {
         'form': form,
@@ -48,5 +49,5 @@ def edit_testimonial(request, testimonial_id):
 def delete_testimonial(request, testimonial_id):
     testimonial = get_object_or_404(Testimonial, id=testimonial_id)
     testimonial.delete()
-    return redirect('all_testimonials') # Return to all_testimonials(request): above
-
+    # Return to all_testimonials(request): above
+    return redirect('all_testimonials')
