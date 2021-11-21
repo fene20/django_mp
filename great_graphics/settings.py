@@ -123,7 +123,7 @@ LOGIN_REDIRECT_URL = '/'
 
 # host name from heroku has - host name from gitpod has _
 WSGI_APPLICATION = 'great-graphics.wsgi.application'
-
+DEBUG = False
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
