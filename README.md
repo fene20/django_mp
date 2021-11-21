@@ -104,7 +104,7 @@ fas fa-gifts
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
--   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
+-   [W3C Markup Validator](https://validator.w3.org/#validate_by_uri) - [Results](https://github.com/)
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
 
 
@@ -114,6 +114,9 @@ CSS
 -   base.css - [View](/validation/base_css.pdf)
 -   checkout.css - [View](/validation/checkout_css.pdf)
 -   profile.css - [View](/validation/profile_css.pdf)
+
+
+
 
 
     -   Order Graphic Page Wireframe - [View](/documentation/wireframes/order_graphic.pdf)
