@@ -86,21 +86,21 @@ It is designed to be responsibe and accessible on a range of devices, making it 
 
 ## Font Awesome icons used:
 
-    - fas fa-search
-    - fas fa-user
-    - fas fa-shopping-bag
-    - fas fa-chevron-left
-    - fas fa-lock
-    - fas fa-minus
-    - fas fa-plus
-    - fas fa-arrow-up
-    - fas fa-chevron-left
-    - fas fa-lock
-    - fas fa-exclamation-circle
-    - fas fa-times
-    - fas fa-spin
-    - fas fa-angle-left
-    - fas fa-gifts
+- fas fa-search
+- fas fa-user
+- fas fa-shopping-bag
+- fas fa-chevron-left
+- fas fa-lock
+- fas fa-minus
+- fas fa-plus
+- fas fa-arrow-up
+- fas fa-chevron-left
+- fas fa-lock
+- fas fa-exclamation-circle
+- fas fa-times
+- fas fa-spin
+- fas fa-angle-left
+- fas fa-gifts
 
 ## Testing
 
@@ -236,6 +236,7 @@ browser shows https://8000-violet-fox-0sxtge1d.ws-eu18.gitpod.io/bag/ when bag b
 ### Flake8
 
 tests.py linter errors not fixed as tests must be added.
+in certain circumstances warnings with lines to long were not modified due to the risk of breaking the functionality of the code.
 -   linter results - [View](/validation/linter.pdf)
 
 
