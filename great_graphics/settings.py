@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-import dj_database_url
 from pathlib import Path
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,8 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'allauth',
-    'allauth.account',  # allauth app for user login, logout, registration and password resets
-    'allauth.socialaccount',  # login via social media providers such as facebook
+    # allauth app for user login, logout, registration and password resets
+    'allauth.account',
+    # login via social media providers such as facebook
+    'allauth.socialaccount',
     'home',
     'graphics',
     'bag',
@@ -81,13 +84,15 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # Required by allauth, get access to request.user or request.user.email
+                # Required by allauth, get access to
+                # request.user or request.user.email
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'bag.contexts.bag_contents',
             ],
-                'builtins': [
+            'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
                 'crispy_forms.templatetags.crispy_forms_field',
             ]
@@ -124,7 +129,6 @@ WSGI_APPLICATION = 'great-graphics.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -136,9 +140,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
-
-
 
 
 # Password validation
@@ -194,7 +195,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # set = True in heroku
 
 if 'USE_AWS' in os.environ:
-    
+
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
@@ -219,14 +220,11 @@ if 'USE_AWS' in os.environ:
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 
-
-
-
 DISCOUNT_PERCENTAGE = 10
 DISCOUNT_THRESHOLD = 25
 
 POSTER_FACTOR_A5 = 0.8
-POSTER_FACTOR_A4 = 1.0 # Default size
+POSTER_FACTOR_A4 = 1.0  # Default size
 POSTER_FACTOR_A3 = 1.2
 POSTER_FACTOR_A2 = 1.4
 POSTER_FACTOR_A1 = 1.6
@@ -235,8 +233,6 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-
-
 
 
 if 'DEVELOPMENT' in os.environ:
