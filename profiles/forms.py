@@ -3,7 +3,9 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """user profile"""
     class Meta:
+        """meta variables"""
         model = UserProfile
         # render all fields except for the user which will not change
         exclude = ('user',)
