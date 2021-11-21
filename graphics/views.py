@@ -7,7 +7,6 @@ from django.db.models.functions import Lower
 from .models import Graphic, Category
 from .forms import GraphicForm
 
-# Create your views here.
 
 def all_graphics(request):
     """ A view to show all graphics, including sorting and search queries """
@@ -24,10 +23,12 @@ def all_graphics(request):
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                # Copying the sort parameter into a new variable called sortkey.
-                # This preserves the original field we want it to sort on - name.
-                # The actual field we're going to sort on is lower_name in the sort key variable.
-                # If we had just renamed sort itself to lower_name we would have lost the original field name.
+                # Copying the sort parameter into a new variable
+                # called sortkey. This preserves the original field
+                # we want it to sort on - name. The actual field we're
+                # going to sort on is lower_name in the sort key variable.
+                # If we had just renamed sort itself to lower_name we
+                # would have lost the original field name.
                 # annotate adds on the new field.
                 graphics = graphics.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
@@ -38,10 +39,13 @@ def all_graphics(request):
                     # minus to reverse order
                     sortkey = f'-{sortkey}'
             graphics = graphics.order_by(sortkey)
-            
+
         if 'category' in request.GET:
-            # double underscore when looking for access to name field of category model
-            # converting the list of strings of category names passed through the URL into a list of actual category objects, so that we can access all their fields in the template.
+            # double underscore when looking for access to name field
+            # of category model
+            # converting the list of strings of category names passed
+            # through the URL into a list of actual category objects,
+            # so that we can access all their fields in the template.
             categories = request.GET['category'].split(',')
             graphics = graphics.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
@@ -51,7 +55,7 @@ def all_graphics(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('graphics'))
-            
+
             # force an OR of queries otherwise search will look for AND of queries
             # | for OR and i in icontains for case insensitive
             queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -98,7 +102,7 @@ def add_graphic(request):
             messages.error(request, 'Failed to add graphic. Please ensure the form is valid.')
     else:
         form = GraphicForm()
-        
+
     template = 'graphics/add_graphic.html'
     context = {
         'form': form,

@@ -4,8 +4,9 @@ from .models import Graphic, Category
 
 
 class GraphicForm(forms.ModelForm):
-
+    """graphic form"""
     class Meta:
+        """meta varaibles"""
         model = Graphic
         fields = '__all__'
 

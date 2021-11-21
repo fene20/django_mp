@@ -1,13 +1,8 @@
 from django.db import models
 
-# Create your models here.
-
-
-from django.db import models
-
 
 class Category(models.Model):
-
+    """graphic categories"""
     class Meta:
         verbose_name_plural = 'Categories'
 
@@ -22,6 +17,7 @@ class Category(models.Model):
 
 
 class Graphic(models.Model):
+    """graphic fields"""
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     # name, description and price are not optional
@@ -46,7 +42,6 @@ class Graphic(models.Model):
     )
     size = models.CharField(max_length=20, choices=size_choices, blank=True)
     orientation = models.CharField(max_length=20, choices=orientation_choices, blank=True)
-
 
     def __str__(self):
         return self.name
